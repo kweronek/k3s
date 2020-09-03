@@ -1,5 +1,5 @@
-# K3s-mac
-Für die Verwendung von K3s auf Linux siehe [hier](https://github.com/kweronek/k3s).
+# K3s-linux
+Für die Verwendung von K3s auf Mac siehe [hier](https://github.com/kweronek/k3s-mac).
 
 ## Beschreibung
 Eine Reihe von Shell-Skripten, um auf dem Mac ein K3s-Cluster zur erzeugen, zu betreiben und zu löschen. K3s ist eine leichtgewichtige aber vollständige und zertifizierte Kubernetes-Distribution. Näheres siehe unter [`K3s`](https://github.com/rancher/k3s).
@@ -13,7 +13,7 @@ Die parametrisierten Scripte arbeiten mit Cononical [`multipass`](https://multip
 ### Voraussetzungen and technische Anforderungen
 Benötigt werden:
 * Hardware: 
-  * Mac mit mindestens MacOS 10.X, zwei Cores, 
+  * x86-Rechner mit Linux mindestens, zwei Cores, 
   * mindestens 4GB RAM, 10 GB freier Plattenspeicher,
 * Software: 
   * Canonical [`multipass`](https://multipass/run)
