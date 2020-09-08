@@ -27,7 +27,7 @@ Anmerkung: Bei zusätzlichen Worker-Knoten sind entsprechend mehr Hardware (ca. 
 ### addCluster
 `addCluster` erstellt k3s-Master- und -Worker-Nodes und erzeugt somit einen neuen Kubernetes-Cluster.  
 ```  
-addCluster <Cluster-Name> <Zahl der Worker-Nodes> <Zahl der Master-Nodes>  
+addCluster <Cluster-Name> <Zahl der Worker-Nodes> <Zahl der Master-Nodes> <Ubuntu multipass Version> 
 ```
 Als Cluster-Name wird dann `k3s-<Cluster-Name>` verwendet. Die Knotenbezeichnungen sind dann:  
 * `k3s-<Cluster-Name>-master-0`
