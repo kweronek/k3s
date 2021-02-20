@@ -8,6 +8,7 @@ export CL_NAM=$1
 export CLUSTER=k3s-$CL_NAM
 export NUM_WORKERS=$2 
 export NUM_MASTERS=$3 # number of masters will be ignored
+[ $4 == '' ] && ( $4='lts'; exit 1 )
 export UBUNTU=$4
 export MASTER=$CLUSTER-master-0
 export WORKER=$CLUSTER-worker
