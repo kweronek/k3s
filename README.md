@@ -5,7 +5,7 @@ Für die Verwendung von K3s auf Mac siehe [hier](https://github.com/kweronek/k3s
 Eine Reihe von Shell-Skripten, um auf dem Mac ein K3s-Cluster zur erzeugen, zu betreiben und zu löschen. K3s ist eine leichtgewichtige aber vollständige und zertifizierte Kubernetes-Distribution. Näheres siehe unter [`K3s`](https://github.com/rancher/k3s).
 
 ### Anwendungsfall
-K3s-Cluster ermöglichen u.a. die schnelle und ressourcenschonende Implementeriung eines voll funktionsfähigen Kubernetes-Clusters auf einen MAC. Dadurch können einen Vielzahl von Kubernetes-Anwendungen auf dem MAC getestet werden.
+K3s-Cluster ermöglichen u.a. die schnelle und ressourcenschonende Implementeriung eines voll funktionsfähigen Kubernetes-Clusters auf einen Linux-Rechner. Dadurch können einen Vielzahl von Kubernetes-Anwendungen auf einem Linux-Rechner getestet werden.
 
 ### Funktionsweise
 Die parametrisierten Scripte arbeiten mit Cononical [`multipass`](https://multipass/run). Dabei werden mindestens zwei virtuelle Maschinen (VMs) mit Ubuntu erzeugt, upgedated und die erforderlichen Pakete installiert. Darüber hinaus werden Verzeichnisse der VMs in lokale Verzeichnisse gemountet. Dabei wird immer die aktuelle [`Ubuntu-LTS-Version`](https://wiki.ubuntu.com/Releases) verwendet und die letzte aktuelle [`stabile Version von K3s`](https://github.com/rancher/k3s/releases). Für K3s wird aktuelle [`containerD`](https://containerd.io) als Runtime verwendet.
@@ -33,7 +33,7 @@ Als Cluster-Name wird dann `k3s-<Cluster-Name>` verwendet. Die Knotenbezeichnung
 * `k3s-<Cluster-Name>-master-0`
 * `k3s-<Cluster-Name>-worker-<i>` mit `<i>=0 ... <Zahl der Worker-Nodes>`
 
-Hinweis: in der aktuellen Version ist nur ein Master-Node möglich (Einsatz von SQ-Lite)
+Hinweis: in der aktuellen k3s-Version ist nur ein Master-Node möglich (Einsatz von SQ-Lite)
 
 ### getKubeconfig
 `getKubeconfig` holt die Kubeconfig-Datei `<Master-Node-Name>/etc/rancher/k3s/k3s.yaml` vom Master, kopiert diese nach $HOME/.kube/config (Default für Kubeconfig-Dateien). Danach wird die Master-IP-Adresse von 127.0.0.1 auf die aktuelle IP-Adresse des Master-Knoten `k3s-<Cluster-Name>-master-0` gesetzt. Dies ermöglicht den unmittelbaren Zugriff von `kubectl` auf den Cluster. 
