@@ -79,7 +79,7 @@ echo "**************************************************************************
 multipass exec $MASTER -- /bin/bash -c "export KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml"
 
 for ((CNT=0; CNT<$NUM_WORKERS; CNT+=1)); do
-	multipass exec $MASTER -- /bin/bash -c "sudo kubectl label node ${WORKER}-${CNT} node-role.kubernetes.io/worker=worker"
+	multipass exec $MASTER -- /bin/bash -c "sudo kubectl label nodes ${WORKER}-${CNT} node-role.kubernetes.io/worker=worker"
 done
 
 # Configure taint NoSchedule for the master node
