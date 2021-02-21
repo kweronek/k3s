@@ -1,9 +1,9 @@
 echo "****************************************************************************************************************************"
 clear
+sudo -s
 multipass list
 echo "**************************************************************************************************************************** stop nodes of cluster $1"
 echo
-
 
 CNT=0
 while [ "" != "$(multipass list|grep k3s-$1-worker-$CNT|grep Running)" ]
@@ -11,9 +11,9 @@ do
 	echo "*******************************"
 	echo k3s-$1-worker-$CNT
 	if  multipass -v stop k3s-$1-worker-$CNT; then
-		  	echo stopped ok
+		  	echo k3s-$1-worker-$CNT stopped ok
 		else
-			echo stopped with warning
+			echo k3s-$1-worker-$CNT stopped with warning
 	fi
 	CNT=$(($CNT+1))
 done	
@@ -24,9 +24,9 @@ do
 	echo "*******************************"
 	echo k3s-$1-master-$CNT
 	if  multipass -v stop k3s-$1-master-$CNT; then
-		  	echo stopped ok
+		  	echo k3s-$1-master-$CNT stopped ok
 		else
-			echo stopped with warning
+			echo k3s-$1-master-$CNTstopped with warning
 	fi
 	CNT=$(($CNT+1))
 done	
@@ -39,9 +39,9 @@ echo
 while [ "" != "$(multipass list|grep k3s-$1-worker-$CNT|grep Stopped)" ]
 do
 	if  multipass -v delete k3s-$1-worker-$CNT; then
-		  	echo deleted with warning
+		  	echo k3s-$1-worker-$CNT deleted ok
 		else
-			echo deleted ok
+			echo k3s-$1-worker-$CNT deleted with warning
 	fi
 	echo ************************
 	CNT=$(($CNT+1))
@@ -51,9 +51,9 @@ done
 while [ "" != "$(multipass list|grep k3s-$1-master-$CNT|grep Stopped)" ]
 do
 	if  multipass -v delete k3s-$1-master-$CNT; then
-		  	echo deleted with warning
+		  	echo k3s-$1-master-$CNT deleted ok
 		else
-			echo deleted ok
+			echo k3s-$1-master-$CNT deleted with warning
 	fi
 	CNT=$(($CNT+1))
 done	
