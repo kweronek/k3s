@@ -34,7 +34,7 @@ multipass list
 echo "**************************************************************************************************************************** delete nodes of cluster $1"
 echo
 
-((CNT=0))
+CNT=0
 while [ "" != "$(multipass list|grep k3s-$1-worker-$CNT|grep Stopped)" ]
 do
 	if  multipass -v delete k3s-$1-worker-$CNT; then
@@ -46,7 +46,7 @@ do
 	CNT=$(($CNT+1))
 done	
 
-((CNT=0))
+CNT=0
 while [ "" != "$(multipass list|grep k3s-$1-master-$CNT|grep Stopped)" ]
 do
 	if  multipass -v delete k3s-$1-master-$CNT; then
